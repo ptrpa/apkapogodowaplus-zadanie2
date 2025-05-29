@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Pogodynka</title>
+</head>
+<body>
+  <h1>Sprawdź pogodę</h1>
+
+  <form method="POST" action="/pogoda">
+    <label for="miasto">Wybierz miasto:</label>
+    <select name="miasto" id="miasto" required>
+      <!-- To jest prawdziwa pusta opcja -->
+      <option value="" {{if eq .Miasto ""}}selected{{end}}>-- wybierz miasto --</option>
+
+      <option value="warszawa" {{if eq .Miasto "warszawa"}}selected{{end}}>Warszawa</option>
+      <option value="kraków" {{if eq .Miasto "kraków"}}selected{{end}}>Kraków</option>
+      <option value="łódź" {{if eq .Miasto "łódź"}}selected{{end}}>Łódź</option>
+      <option value="wrocław" {{if eq .Miasto "wrocław"}}selected{{end}}>Wrocław</option>
+      <option value="poznań" {{if eq .Miasto "poznań"}}selected{{end}}>Poznań</option>
+      <option value="gdańsk" {{if eq .Miasto "gdańsk"}}selected{{end}}>Gdańsk</option>
+      <option value="szczecin" {{if eq .Miasto "szczecin"}}selected{{end}}>Szczecin</option>
+      <option value="bydgoszcz" {{if eq .Miasto "bydgoszcz"}}selected{{end}}>Bydgoszcz</option>
+      <option value="rzeszów" {{if eq .Miasto "rzeszów"}}selected{{end}}>Rzeszów</option>
+      <option value="lublin" {{if eq .Miasto "lublin"}}selected{{end}}>Lublin</option>
+    </select>
+
+    <br><br>
+    <button type="submit" name="akcja" value="sprawdź">Sprawdź</button>
+    <button type="submit" name="akcja" value="odśwież">Odśwież</button>
+  </form>
+
+  {{if .Wynik}}
+    <pre>{{.Wynik}}</pre>
+  {{end}}
+</body>
+</html>
+
