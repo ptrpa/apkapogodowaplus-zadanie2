@@ -13,7 +13,6 @@ import (
 var token = os.Getenv("WEATHER_API_KEY")
 var tmpl = template.Must(template.ParseFiles("index.html"))
 
-
 func main() {
 	// tryb healthcheck
 	if len(os.Args) > 1 && os.Args[1] == "-healthcheck" {
