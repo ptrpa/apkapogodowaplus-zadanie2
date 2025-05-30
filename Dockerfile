@@ -4,11 +4,12 @@ FROM golang:1.21-alpine AS builder
 WORKDIR /app
 
 COPY go.mod .
+RUN apk add --no-cache upx ca-certificates
+
 COPY main.go .
 COPY index.html .
 
-RUN apk add --no-cache upx ca-certificates && \
-    CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o main . && \
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o main . && \
     upx --best --lzma main
 
 # Etap 2: Distroless (zamiast scratch)
