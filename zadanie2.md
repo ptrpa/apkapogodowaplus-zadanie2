@@ -1,3 +1,4 @@
+```yaml
 name: Build & Push Multiarch Docker Image with Security Scan
 
 on:
@@ -104,3 +105,5 @@ jobs:
             ghcr.io/ptrpa/apkapogodowaplus-zadanie2:v1.0.0
           cache-from: type=registry,ref=s99656/apkapogodowaplus-zadanie2:buildcache
           cache-to: type=registry,ref=s99656/apkapogodowaplus-zadanie2:buildcache,mode=max
+
+```
