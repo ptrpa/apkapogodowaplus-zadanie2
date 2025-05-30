@@ -101,7 +101,6 @@ func pobierzPogode(miasto string) (string, error) {
 		dane.Day.TempMin, dane.Day.TempMax, dane.Day.WindVelocity, dane.Day.Precipitation, dane.Day.Humidity, dane.Day.Pressure), nil
 }
 
-
 func usunPolskieZnaki(s string) string {
 	zamiany := map[rune]rune{
 		'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l',
