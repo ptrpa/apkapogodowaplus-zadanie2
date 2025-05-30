@@ -44,6 +44,8 @@ jobs:
         image-ref: ghcr.io/ptrpa/apkapogodowaplus-zadanie2:latest
         format: table
         output: trivy-report.txt
+        github-pat: ${{ secrets.GITHUB_TOKEN }}
+
 
     - name: Upload Trivy report artifact
       uses: actions/upload-artifact@v4
